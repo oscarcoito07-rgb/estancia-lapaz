@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Reservas y contacto en Estancia La Paz, Paysandú. Consultá disponibilidad para alojamiento, eventos y celebraciones.">
+  <title>Reservas y Contacto | Estancia La Paz</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav id="navbar" class="nav-light">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Estancia La Paz<span>Paysandú · Uruguay</span></a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html" class="nav-link">Inicio</a></li>
+        <li><a href="sobre.html" class="nav-link">Sobre la Estancia</a></li>
+        <li><a href="alojamiento.html" class="nav-link">Alojamiento</a></li>
+        <li><a href="servicios.html" class="nav-link">Servicios</a></li>
+        <li><a href="eventos.html" class="nav-link">Eventos</a></li>
+        <li><a href="galeria.html" class="nav-link">Galería</a></li>
+        <li><a href="ubicacion.html" class="nav-link">Cómo Llegar</a></li>
+        <li><a href="reservas.html" class="btn btn--primario" style="padding:0.5rem 1.2rem;">Reservar</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- RESERVAS HERO -->
+<div class="reservas-hero">
+  <div class="container">
+    <div class="breadcrumb" style="justify-content:center;"><a href="index.html" style="color:var(--dorado);">Inicio</a><span>›</span><span style="color:rgba(245,239,224,0.6)">Reservas</span></div>
+    <span class="etiqueta" style="color:var(--dorado); margin-top:0.5rem; display:block;">Consultá ahora</span>
+    <h1>Reservas y Contacto</h1>
+    <p class="lead" style="max-width:580px; margin:0.8rem auto 0;">Completá el formulario y te respondemos a la brevedad con disponibilidad, precios y toda la información que necesitás.</p>
+  </div>
+</div>
+
+<!-- FORMULARIO -->
+<section class="section">
+  <div class="container">
+    <div class="reservas-grid">
+
+      <!-- FORMULARIO -->
+      <div class="fade-in">
+        <div class="form-card">
+          <h3>Hacé tu consulta</h3>
+
+          <!-- FORMULARIO REAL -->
+          <!--
+            ══════════════════════════════════════════════════
+            INSTRUCCIONES PARA ACTIVAR EL FORMULARIO
+            ══════════════════════════════════════════════════
+            El formulario actual simula el envío por JS.
+            Para hacerlo funcional en producción, tenés estas opciones:
+
+            OPCIÓN A — Formspree (sin backend, gratis):
+            1. Registrate en https://formspree.io
+            2. Creá un form y obtené tu endpoint.
+            3. Reemplazá el action="#" por tu URL:
+               <form action="https://formspree.io/f/TU_ID" method="POST">
+            4. Eliminá el event.preventDefault() en main.js
+
+            OPCIÓN B — EmailJS (sin backend):
+            1. Registrate en https://emailjs.com
+            2. Configurá tu servicio y plantilla.
+            3. Integrá con JS usando su SDK.
+
+            OPCIÓN C — Backend propio (PHP, Node.js, etc.):
+            Cambiá action="#" por la URL de tu script.
+            ══════════════════════════════════════════════════
+          -->
+          <div id="form-success" class="form-success">
+            <div class="form-success-icon">✅</div>
+            <h3>¡Consulta enviada con éxito!</h3>
+            <p>Recibimos tu mensaje y te respondemos en las próximas horas con disponibilidad y detalles.</p>
+            <p>Si necesitás una respuesta inmediata, llamanos al <a href="tel:+59899807974"><strong>099 807 974</strong></a>.</p>
+          </div>
+
+          <form id="form-reserva" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nombre">Nombre y apellido *</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ej: María García" required>
+              </div>
+              <div class="form-group">
+                <label for="telefono">Teléfono *</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="099 000 000" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Correo electrónico *</label>
+              <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="tipo">Tipo de consulta *</label>
+              <select id="tipo" name="tipo" required>
+                <option value="">— Seleccioná una opción —</option>
+                <option value="alojamiento">Alojamiento (estadía)</option>
+                <option value="boda">Evento: Boda / Casamiento</option>
+                <option value="cumpleanos">Evento: Cumpleaños / Quinceañero</option>
+                <option value="reunion">Evento: Reunión familiar</option>
+                <option value="corporativo">Evento: Corporativo / Retiro</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fecha-llegada">Fecha de llegada *</label>
+                <input type="date" id="fecha-llegada" name="fecha-llegada" required>
+              </div>
+              <div class="form-group">
+                <label for="fecha-salida">Fecha de salida</label>
+                <input type="date" id="fecha-salida" name="fecha-salida">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="personas">Cantidad de personas *</label>
+              <select id="personas" name="personas" required>
+                <option value="">— Seleccioná —</option>
+                <option value="1-5">1 a 5 personas</option>
+                <option value="6-15">6 a 15 personas</option>
+                <option value="16-30">16 a 30 personas</option>
+                <option value="31-50">31 a 50 personas</option>
+                <option value="mas-50">Más de 50 personas</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="mensaje">Mensaje o consulta adicional</label>
+              <textarea id="mensaje" name="mensaje" placeholder="Contanos más sobre tu estadía o evento. Cualquier detalle nos ayuda a darte una mejor respuesta."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--primario form-submit">Enviar consulta</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- INFO LATERAL -->
+      <div class="info-contacto-card fade-in">
+
+        <div class="info-box">
+          <h4>Contacto directo</h4>
+          <div class="dato-item" style="margin-bottom:1rem;">
+            <span class="dato-icon">📞</span>
+            <div>
+              <strong>Teléfono</strong>
+              <a href="tel:+59899807974" style="font-size:1.05rem; font-weight:700; color:var(--verde);">099 807 974</a>
+            </div>
+          </div>
+          <div class="dato-item" style="margin-bottom:1rem;">
+            <span class="dato-icon">✉️</span>
+            <div>
+              <strong>Correo</strong>
+              <a href="mailto:reservas@estancialapaz.com.uy" style="color:var(--gris); font-size:0.88rem;">reservas@estancialapaz.com.uy</a>
+            </div>
+          </div>
+          <div class="dato-item">
+            <span class="dato-icon">💬</span>
+            <div>
+              <strong>WhatsApp</strong>
+              <a href="https://wa.me/59899807974?text=Hola,%20quiero%20consultar%20sobre%20la%20estancia" target="_blank" rel="noopener" style="color:var(--verde); font-weight:700;">Escribir por WhatsApp</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <h4>Tiempo de respuesta</h4>
+          <p style="font-size:0.9rem;">Respondemos todas las consultas en el mismo día hábil. Para urgencias o disponibilidad inmediata, llamanos directamente.</p>
+          <div style="background:var(--verde); color:var(--crema); padding:0.8rem 1rem; border-radius:var(--radio); font-size:0.85rem; margin-top:1rem; text-align:center;">
+            ⏱️ Respuesta en menos de 24 horas
+          </div>
+        </div>
+
+        <div class="info-box">
+          <h4>Políticas de reserva</h4>
+          <ul class="politica-lista">
+            <li>Confirmación con seña del 30%</li>
+            <li>Saldo al momento del check-in</li>
+            <li>Cancelación con 15 días de anticipación</li>
+            <li>Precios variables según temporada</li>
+            <li>Consultar disponibilidad antes de confirmar</li>
+          </ul>
+        </div>
+
+        <div class="info-box">
+          <h4>📍 Dónde estamos</h4>
+          <p style="font-size:0.9rem;">Ruta 24, kilómetro 86,500<br>Paysandú, Uruguay</p>
+          <a href="ubicacion.html" style="font-size:0.85rem; color:var(--verde); font-weight:700; text-decoration:underline;">Ver cómo llegar →</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section--bg">
+  <div class="container container--narrow">
+    <div class="seccion-intro fade-in">
+      <span class="etiqueta">Preguntas frecuentes</span>
+      <h2>Todo lo que necesitás saber</h2>
+      <span class="separador"></span>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:1rem;" class="fade-in">
+      <div class="info-box">
+        <h4>¿Ofrecen servicio de comidas?</h4>
+        <p style="font-size:0.92rem; margin:0.4rem 0 0;">No. Los huéspedes cocinan sus propias comidas. Para eso contamos con una cocina totalmente equipada. Esta modalidad da total libertad y autonomía a quienes se alojan.</p>
+      </div>
+      <div class="info-box">
+        <h4>¿Se puede alquilar solo el salón sin alojamiento?</h4>
+        <p style="font-size:0.92rem; margin:0.4rem 0 0;">Sí. Para eventos como bodas, quinceañeros o cumpleaños es posible alquilar el salón y los espacios para el evento sin necesidad de alojamiento. Consultanos por tu caso particular.</p>
+      </div>
+      <div class="info-box">
+        <h4>¿Las cabalgatas están incluidas en el precio?</h4>
+        <p style="font-size:0.92rem; margin:0.4rem 0 0;">Las cabalgatas se coordinan por separado. Consultanos al hacer la reserva para que podamos organizarlas durante tu estadía.</p>
+      </div>
+      <div class="info-box">
+        <h4>¿Admiten mascotas?</h4>
+        <p style="font-size:0.92rem; margin:0.4rem 0 0;">Dependiendo del caso. Consultanos antes de reservar para evaluar la situación y las condiciones.</p>
+      </div>
+      <div class="info-box">
+        <h4>¿Cuántas personas entran en la estancia?</h4>
+        <p style="font-size:0.92rem; margin:0.4rem 0 0;">La capacidad varía según el tipo de uso. Para alojamiento, consultanos el número de habitaciones disponibles. Para eventos en el salón, la capacidad es mayor. Consultanos por tu caso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><a href="index.html" class="nav-logo" style="color:var(--crema);display:block;margin-bottom:1rem;">Estancia La Paz<span>Paysandú · Uruguay</span></a><p>Un espacio único en Uruguay para descansar y celebrar.</p></div>
+      <div class="footer-col"><h5>Páginas</h5><ul><li><a href="sobre.html">Sobre la estancia</a></li><li><a href="alojamiento.html">Alojamiento</a></li><li><a href="servicios.html">Servicios</a></li><li><a href="eventos.html">Eventos</a></li><li><a href="galeria.html">Galería</a></li><li><a href="ubicacion.html">Cómo llegar</a></li></ul></div>
+      <div class="footer-col"><h5>Contacto</h5><div class="dato-item" style="margin-bottom:0.8rem;"><span class="dato-icon">📞</span><div><strong>Teléfono</strong><a href="tel:+59899807974" style="color:rgba(245,239,224,0.7)">099 807 974</a></div></div><div class="dato-item"><span class="dato-icon">✉️</span><div><strong>Email</strong><a href="mailto:reservas@estancialapaz.com.uy" style="color:rgba(245,239,224,0.7);font-size:0.82rem;">reservas@estancialapaz.com.uy</a></div></div></div>
+      <div class="footer-col"><h5>Ubicación</h5><p style="font-size:0.85rem;">Ruta 24 km 86,500<br>Paysandú, Uruguay</p></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Estancia La Paz.</span></div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

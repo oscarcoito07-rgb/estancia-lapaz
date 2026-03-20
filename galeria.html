@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Galería de fotos de Estancia La Paz, Paysandú. Habitaciones, piscina, salón de eventos, parrillero, cabalgatas y espacios exteriores.">
+  <title>Galería | Estancia La Paz</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .galeria-tabs {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+      justify-content: center;
+    }
+    .galeria-tab {
+      padding: 0.55rem 1.4rem;
+      border: 1.5px solid var(--crema-oscuro);
+      border-radius: 99px;
+      background: transparent;
+      font-family: var(--fuente-cuerpo);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      color: var(--gris);
+      transition: all var(--transicion);
+    }
+    .galeria-tab.active,
+    .galeria-tab:hover {
+      background: var(--verde);
+      border-color: var(--verde);
+      color: var(--crema);
+    }
+    .galeria-panel { display: none; }
+    .galeria-panel.active { display: block; }
+
+    /* Grilla uniforme para la galería */
+    .galeria-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    @media(max-width:768px){ .galeria-grid { grid-template-columns: 1fr 1fr; } }
+    @media(max-width:480px){ .galeria-grid { grid-template-columns: 1fr; } }
+
+    .g-item {
+      aspect-ratio: 4/3;
+      border-radius: var(--radio);
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      background: var(--crema-oscuro);
+    }
+    .g-item img { width:100%; height:100%; object-fit:cover; transition: transform 0.5s ease; }
+    .g-item:hover img { transform: scale(1.06); }
+    .g-item-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(44,74,46,0.45);
+      opacity: 0;
+      transition: opacity var(--transicion);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.6rem;
+    }
+    .g-item:hover .g-item-overlay { opacity: 1; }
+    .g-ph { width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.4rem; color:var(--gris); font-size:0.78rem; }
+    .g-ph .icon { font-size:2rem; opacity:0.5; }
+  </style>
+</head>
+<body>
+
+<nav id="navbar" class="nav-light">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Estancia La Paz<span>Paysandú · Uruguay</span></a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html" class="nav-link">Inicio</a></li>
+        <li><a href="sobre.html" class="nav-link">Sobre la Estancia</a></li>
+        <li><a href="alojamiento.html" class="nav-link">Alojamiento</a></li>
+        <li><a href="servicios.html" class="nav-link">Servicios</a></li>
+        <li><a href="eventos.html" class="nav-link">Eventos</a></li>
+        <li><a href="galeria.html" class="nav-link">Galería</a></li>
+        <li><a href="ubicacion.html" class="nav-link">Cómo Llegar</a></li>
+        <li><a href="reservas.html" class="btn btn--primario" style="padding:0.5rem 1.2rem;">Reservar</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Inicio</a><span>›</span><span>Galería</span></div>
+    <span class="etiqueta">Imágenes de la estancia</span>
+    <h1>Galería</h1>
+    <p>Mirá los espacios, las instalaciones y los momentos que hacen única a Estancia La Paz.</p>
+  </div>
+</div>
+
+<!-- GALERÍA CON TABS -->
+<section class="section">
+  <div class="container">
+
+    <div class="galeria-tabs">
+      <button class="galeria-tab active" data-panel="panel-todo">Todo</button>
+      <button class="galeria-tab" data-panel="panel-exterior">Exteriores</button>
+      <button class="galeria-tab" data-panel="panel-habitaciones">Habitaciones</button>
+      <button class="galeria-tab" data-panel="panel-piscina">Piscina</button>
+      <button class="galeria-tab" data-panel="panel-eventos">Eventos</button>
+      <button class="galeria-tab" data-panel="panel-actividades">Actividades</button>
+    </div>
+
+    <!-- PANEL: TODO -->
+    <div class="galeria-panel active" id="panel-todo">
+      <div class="galeria-grid">
+        <!--
+          ══════════════════════════════════════════════════
+          INSTRUCCIONES PARA INSERTAR FOTOS EN LA GALERÍA
+          ══════════════════════════════════════════════════
+          Para cada item:
+          1. Copiá la imagen a la carpeta /img/
+          2. Reemplazá el bloque .g-ph por una etiqueta <img>:
+             <img src="img/nombre-foto.jpg" alt="Descripción">
+          3. Podés agregar el atributo data-src al .g-item para
+             activar el lightbox:
+             <div class="g-item" data-src="img/nombre-foto.jpg">
+          Tamaño recomendado: 800×600px mínimo, JPG optimizado
+          ══════════════════════════════════════════════════
+        -->
+        <div class="g-item"><div class="g-ph"><span class="icon">🌅</span><span>Vista panorámica</span></div><div class="g-item-overlay">🔍</div></div>
+        <div class="g-item"><div class="g-ph"><span class="icon">🏊</span><span>Piscina</span></div><div class="g-item-overlay">🔍</div></div>
+        <div class="g-item"><div class="g-ph"><span class="icon">🎊</span><span>Salón de fiestas</span></div><div class="g-item-overlay">🔍</div></div>
+        <div class="g-item"><div class="g-ph"><span class="icon">🛏️</span><span>Habitación doble</span></div><div class="g-item-overlay">🔍</div></div>
+        <div class="g-item"><div class="g-ph"><span class="icon">🐎</span><span>Cabalgatas</span></div><div class="g-item-overlay">🔍</div></div>
+        <div class="g-item"><div class="g-ph"><span class="icon">🍖</span><span>Parrillero</span></div><div class="g-item-overlay">🔍</div></div>
+        <div class="g-item"><div class="g-ph"><span class="icon">🏡</span><span>Fachada estancia</span></div><div class="g-item-overlay">🔍</div></div>
+        <div class="g-item"><div class="g-ph"><span class="icon">🌿</span><span>Jardines</span></div><div class="g-item-overlay">🔍</div></div>
+        <div class="g-item"><div class="g-ph"><span class="icon">🍳</span><span>Cocina</span></div><div class="g-item-overlay">🔍</div></div>
+        <div class="g-item"><div class="g-ph"><span class="icon">💍</span><span>Boda</span></div><div class="g-item-overlay">🔍</div></div>
+        <div class="g-item"><div class="g-ph"><span class="icon">🌳</span><span>Árboles y espacios</span></div><div class="g-item-overlay">🔍</div></div>
+        <div class="g-item"><div class="g-ph"><span class="icon">🌙</span><span>Noche en la estancia</span></div><div class="g-item-overlay">🔍</div></div>
+      </div>
+    </div>
+
+    <!-- PANEL: EXTERIOR -->
+    <div class="galeria-panel" id="panel-exterior">
+      <div class="galeria-grid">
+        <div class="g-item"><div class="g-ph"><span class="icon">🏡</span><span>Fachada principal</span></div><div class="g-item-overlay">🔍</div></div>
+        <div class="g-item"><div class="g-ph"><span class="icon">🌅</span><span>Vista panorámica</span></div><div class="g-item-overlay">🔍</div></div>
+        <div class="g-item"><div class="g-ph"><span class="icon">🌿</span><span>Jardines</span></div><div class="g-item-overlay">🔍</div></div>
+        <div class="g-item"><div class="g-ph"><span class="icon">🌳</span><span>Arboleda</span></div><div class="g-item-overlay">🔍</div></div>
+        <div class="g-item"><div class="g-ph"><span class="icon">🌙</span><span>Nocturna exterior</span></div><div class="g-item-overlay">🔍</div></div>
+        <div class="g-item"><div class="g-ph"><span class="icon">🛤️</span><span>Acceso a la estancia</span></div><div class="g-item-overlay">🔍</div></div>
+      </div>
+    </div>
+
+    <!-- PANEL: HABITACIONES -->
+    <div class="galeria-panel" id="panel-habitaciones">
+      <div class="galeria-grid">
+        <div class="g-item"><div class="g-ph"><span class="icon">🛏️</span><span>Habitación doble</span></div><div class="g-item-overlay">🔍</div></div>
+        <div class="g-item"><div class="g-ph"><span class="icon">🏠</span><span>Habitación múltiple</span></div><div class="g-item-overlay">🔍</div></div>
+        <div class="g-item"><div class="g-ph"><span class="icon">🚿</span><span>Baño privado</span></div><div class="g-item-overlay">🔍</div></div>
+        <div class="g-item"><div class="g-ph"><span class="icon">🍳</span><span>Cocina equipada</span></div><div class="g-item-overlay">🔍</div></div>
+        <div class="g-item"><div class="g-ph"><span class="icon">🪟</span><span>Vista desde habitación</span></div><div class="g-item-overlay">🔍</div></div>
+        <div class="g-item"><div class="g-ph"><span class="icon">🛋️</span><span>Área de estar</span></div><div class="g-item-overlay">🔍</div></div>
+      </div>
+    </div>
+
+    <!-- PANEL: PISCINA -->
+    <div class="galeria-panel" id="panel-piscina">
+      <div class="galeria-grid">
+        <div class="g-item"><div class="g-ph"><span class="icon">🏊</span><span>Piscina general</span></div><div class="g-item-overlay">🔍</div></div>
+        <div class="g-item"><div class="g-ph"><span class="icon">☀️</span><span>Zona de reposeras</span></div><div class="g-item-overlay">🔍</div></div>
+        <div class="g-item"><div class="g-ph"><span class="icon">💦</span><span>Piscina vista lateral</span></div><div class="g-item-overlay">🔍</div></div>
+        <div class="g-item"><div class="g-ph"><span class="icon">🌅</span><span>Piscina al atardecer</span></div><div class="g-item-overlay">🔍</div></div>
+      </div>
+    </div>
+
+    <!-- PANEL: EVENTOS -->
+    <div class="galeria-panel" id="panel-eventos">
+      <div class="galeria-grid">
+        <div class="g-item"><div class="g-ph"><span class="icon">🎊</span><span>Salón de fiestas</span></div><div class="g-item-overlay">🔍</div></div>
+        <div class="g-item"><div class="g-ph"><span class="icon">💍</span><span>Boda</span></div><div class="g-item-overlay">🔍</div></div>
+        <div class="g-item"><div class="g-ph"><span class="icon">🎀</span><span>Quinceañero</span></div><div class="g-item-overlay">🔍</div></div>
+        <div class="g-item"><div class="g-ph"><span class="icon">✨</span><span>Decoración salón</span></div><div class="g-item-overlay">🔍</div></div>
+        <div class="g-item"><div class="g-ph"><span class="icon">🏛️</span><span>Exterior salón</span></div><div class="g-item-overlay">🔍</div></div>
+        <div class="g-item"><div class="g-ph"><span class="icon">🥂</span><span>Celebración</span></div><div class="g-item-overlay">🔍</div></div>
+      </div>
+    </div>
+
+    <!-- PANEL: ACTIVIDADES -->
+    <div class="galeria-panel" id="panel-actividades">
+      <div class="galeria-grid">
+        <div class="g-item"><div class="g-ph"><span class="icon">🐎</span><span>Cabalgata</span></div><div class="g-item-overlay">🔍</div></div>
+        <div class="g-item"><div class="g-ph"><span class="icon">🍖</span><span>Parrillero</span></div><div class="g-item-overlay">🔍</div></div>
+        <div class="g-item"><div class="g-ph"><span class="icon">🌳</span><span>Caminata por el campo</span></div><div class="g-item-overlay">🔍</div></div>
+        <div class="g-item"><div class="g-ph"><span class="icon">🌿</span><span>Naturaleza</span></div><div class="g-item-overlay">🔍</div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+  <button class="lightbox-close" aria-label="Cerrar">&times;</button>
+  <img src="" alt="Imagen ampliada" class="lightbox-img">
+</div>
+
+<section class="cta-banner">
+  <div class="container">
+    <h2 class="fade-in">¿Te convencieron las fotos?</h2>
+    <p class="fade-in">El próximo paso es reservar y vivirlo en persona. Consultá disponibilidad hoy.</p>
+    <div class="btn-group fade-in">
+      <a href="reservas.html" class="btn btn--borde">Hacer una reserva</a>
+      <a href="tel:+59899807974" class="btn btn--dorado">📞 Llamar ahora</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><a href="index.html" class="nav-logo" style="color:var(--crema);display:block;margin-bottom:1rem;">Estancia La Paz<span>Paysandú · Uruguay</span></a><p>Un espacio único en Uruguay para descansar y celebrar.</p></div>
+      <div class="footer-col"><h5>Páginas</h5><ul><li><a href="sobre.html">Sobre la estancia</a></li><li><a href="alojamiento.html">Alojamiento</a></li><li><a href="servicios.html">Servicios</a></li><li><a href="eventos.html">Eventos</a></li><li><a href="galeria.html">Galería</a></li><li><a href="ubicacion.html">Cómo llegar</a></li></ul></div>
+      <div class="footer-col"><h5>Contacto</h5><div class="dato-item" style="margin-bottom:0.8rem;"><span class="dato-icon">📞</span><div><strong>Teléfono</strong><a href="tel:+59899807974" style="color:rgba(245,239,224,0.7)">099 807 974</a></div></div></div>
+      <div class="footer-col"><h5>Ubicación</h5><p style="font-size:0.85rem;">Ruta 24 km 86,500<br>Paysandú, Uruguay</p></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Estancia La Paz.</span></div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
