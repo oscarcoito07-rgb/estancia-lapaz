@@ -1,0 +1,22 @@
+# Carpeta de imágenes — /img/
+
+Esta carpeta está destinada a las fotografías del sitio.
+
+Consultá el README.md en la raíz del proyecto para ver la lista completa de fotos sugeridas, tamaños recomendados e instrucciones de inserción.
+
+## Fotos principales a insertar:
+
+- hero-principal.jpg (1920×1080px) → Hero de inicio
+- sobre-estancia.jpg → Sección Sobre
+- piscina.jpg → Página de servicios
+- parrillero.jpg → Página de servicios
+- cabalgatas.jpg → Página de servicios
+- cocina.jpg → Página de alojamiento
+- hab-doble.jpg → Habitación doble
+- hab-multiple.jpg → Habitación múltiple
+- salon-interior.jpg → Página de eventos
+- salon-exterior.jpg → Página de eventos
+- eventos-boda.jpg → Card bodas
+- eventos-15.jpg → Card quinceañeros
+- eventos-reunion.jpg → Card reuniones
+- [fotos de galería numeradas] → galeria.html
